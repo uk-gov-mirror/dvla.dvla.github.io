@@ -10,65 +10,67 @@ ShowToc: true
 TocOpen: true
 ---
 
-Ever had to create users in MongoDb Atlas in AWS for use when making database enquiries in a functional test written in Ruby?  
-Ever wished you could leave it to the test pack to check if one already exists and create one when required, instead of hand cranking a new one every single day of your life?  
+Ever had to create users in MongoDb Atlas in AWS for use when making database enquiries in a functional test written in Ruby?
+Ever wished you could leave it to the test pack to check if one already exists and create one when required, instead of hand cranking a new one every single day of your life?
 
-Well now you can!!!  
+Well now you can!!!
 
-#### But, first things first
+## But, first things first
 
 What is MongoDB Atlas and what do its users do?
 
-Atlas is a repository of database users. A user assumes a role which has database access and permissions.  
+Atlas is a repository of database users. A user assumes a role which has database access and permissions.
 
-Access could be to one or more databases.  
+Access could be to one or more databases.
 Permissions could be read, read/write, etc.
 
 All the info you could ever want is here: https://www.mongodb.com/docs/atlas/
 
-#### Why do this? Why not create a new user every time?  
+## Why do this? Why not create a new user every time?
 
 Because Atlas users sit outside of a test pack and can be used for the whole time they exist.
 Plus, creating & deleting users for every test is pointless and expensive, data-wise.
 
-#### Is there anybody in there...?  
+## Is there anybody in there...?
 
 Assuming you have atlas installed and configured on your machine...
 
 Let's check the existing users:
 
-In Terminal: 
+In Terminal:
 
 ```ruby
 atlas dbusers list
 ```
 
-This will return a list of the current users set up in the MongoDB Atlas instance you're connected to.  
+This will return a list of the current users set up in the MongoDB Atlas instance you're connected to.
 
-The list will look something like this:  
+The list will look something like this:
 
-USERNAME                                                                                      DATABASE
-test-repo-admin-user                                                                          admin
-mongodb-realm-triggers_realmapp-service-name-here-cluster                                     admin
-mongodb-real-service-name-here-mongodb-atlas                                                  admin
-arn:aws:iam::<ACCOUNT_NUMBER>:role/<ASSUMED_ROLE_TITLE>                                       $external
-arn:aws:iam::<OTHER_ACCOUNT_NUMBER>:role/<OTHER_ROLE_TITLE>                                   $external
+```shell
+USERNAME DATABASE
+test-repo-admin-user admin
+mongodb-realm-triggers_realmapp-service-name-here-cluster admin
+mongodb-real-service-name-here-mongodb-atlas admin
+arn:aws:iam::<ACCOUNT_NUMBER>:role/<ASSUMED_ROLE_TITLE> $external
+arn:aws:iam::<OTHER_ACCOUNT_NUMBER>:role/<OTHER_ROLE_TITLE> $external
+```
 
+Atlas also has a method which can be used to search for a specific user:
 
-Atlas also has a method which can be used to search for a specific user  
+```shell
+atlas dbusers describe #{enquirer_username} --authDB \\<database> -o json`
+```
 
-```atlas dbusers describe #{enquirier_username} --authDB \\<database> -o json```
+Which returns a boolean value.
 
-which returns a boolean value.
-
-#### Code
+## Code
 
 Add this to the env.rb in your test pack.
 
-note: the 'LOG.info' commands are to output info to console. 
+> **Note:** the 'LOG.info' commands are to output info to console.
 
-```ruby
-
+````ruby
 require 'date'
 
 date_today = Date.today.strftime('%Y-%m-%d')
@@ -87,3 +89,4 @@ system "atlas dbusers create readAnyDatabase -u #{enquirier_username} --awsIAMTy
 else
 LOG.info { 'Enquiry user already created: '.cyan + "'#{enquirier_username}'" }
 end```
+````

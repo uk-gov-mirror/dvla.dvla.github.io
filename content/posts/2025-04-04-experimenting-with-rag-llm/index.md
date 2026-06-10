@@ -10,9 +10,9 @@ ShowToc: true
 TocOpen: true
 ---
 
-*Note well* Please ensure you consider and adhere to any policies and restrictions your organisation places on the use of data with AI and the selection of AI models.
+_Note well_ Please ensure you consider and adhere to any policies and restrictions your organisation places on the use of data with AI and the selection of AI models.
 
-I want to be able to ask an generative AI some questions while giving it the context from which I'd like it to use it's smarts to derive an answer. This is Retrieval-Augmented Generation (RAG).
+I want to be able to ask a generative AI some questions while giving it the context from which I'd like it to use it's smarts to derive an answer. This is Retrieval-Augmented Generation (RAG).
 
 Being a Ruby engineer, I'm going to pick up my shiny red hammer to attack this problem.
 
@@ -28,11 +28,11 @@ Because I'm super lazy and want to experiment by hand, I'm using the open source
 
 ## Chatting to the LLM
 
-At the begining of this experiment, I wasn't sure which model I wanted to use or how to interface with it so I used the [`langchainrb`](https://github.com/patterns-ai-core/langchainrb) library which provides a high-level, pluggable interface.
+At the beginning of this experiment, I wasn't sure which model I wanted to use or how to interface with it, so I used the [`langchainrb`](https://github.com/patterns-ai-core/langchainrb) library which provides a high-level, pluggable interface.
 
 I do need to install the [Open AI](https://rubygems.org/gems/ruby-openai) as well.
 
-Then I'm going to configure the Open AI library to use my local server rather than the internet. When I create a LLM client, I need to tell it which model I'm going to use. Since Jan can only load one model, I'm going to use the same one for all interations.
+Then I'm going to configure the Open AI library to use my local server rather than the internet. When I create a LLM client, I need to tell it which model I'm going to use. Since Jan can only load one model, I'm going to use the same one for all interactions.
 
 ```ruby
 require 'langchain'
@@ -54,7 +54,7 @@ llm = Langchain::LLM::OpenAI.new(api_key: 'locally-model-no-api-key',
                                    embedding_model: MODEL } )
 ```
 
-I also want an assistant client. An assistant stores context to make conversational interations more natural. I'm going to pass a block into the constructor which will be called as the response is streamed rather than wait until a complete result is received because I just want to print the response to the console as it is generated.
+I also want an assistant client. An assistant stores context to make conversational interactions more natural. I'm going to pass a block into the constructor which will be called as the response is streamed rather than wait until a complete result is received because I just want to print the response to the console as it is generated.
 
 ```Ruby
 assistant = Langchain::Assistant.new(
@@ -66,7 +66,6 @@ assistant = Langchain::Assistant.new(
     print response_chunk.dig('delta', 'content')
   end
 ```
-
 
 ## Collecting my own data
 

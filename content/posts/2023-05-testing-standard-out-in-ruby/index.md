@@ -17,7 +17,7 @@ Testing what a Ruby process writes to STDOUT.
 Ruby has two built-in values that represent the system's standard output stream:
 
 1. The constant `STDOUT`
-1. The global variable `$stdout`
+2. The global variable `$stdout`
 
 The Ruby [documentation](https://docs.ruby-lang.org/en/master/globals_rdoc.html), describes `STDOUT` as _the_ standard output, and `$stdout` and the _current_ standard output. If you want to change the stream that this Ruby process sends its output to, you can change the value of `$stdout`
 

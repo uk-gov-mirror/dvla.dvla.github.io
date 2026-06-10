@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "_docs": "Prettier configuration docs: https://prettier.io/docs/configuration",
+  "printWidth": 120,
+  "proseWrap": "preserve",
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false,
+  "trailingComma": "none"
+}

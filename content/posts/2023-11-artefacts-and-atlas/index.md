@@ -10,7 +10,7 @@ ShowToc: true
 TocOpen: true
 ---
 
-We've recently publicly released a Gem called [dvla-atlas](https://github.com/dvla/atlas)[^1] and today we are going to take you through a bit of history surrounding testing at the DVLA that led to use developing Atlas, along with a dive into some of the code that makes it tick. Atlas is designed to make the managing of properties in functional tests easier while also ensuring that each test is run in isolation and without any cross-pollination of test data. But first, lets take a look at what we mean by artefacts and we used them in tests we'd written in [Cucumber](https://cucumber.io/).
+We've recently publicly released a Gem called [dvla-atlas](https://github.com/dvla/atlas)[^1], and today we are going to take you through a bit of history surrounding testing at the DVLA that led to use developing Atlas, along with a dive into some of the code that makes it tick. Atlas is designed to make the managing of properties in functional tests easier while also ensuring that each test is run in isolation and without any cross-pollination of test data. But first, lets take a look at what we mean by artefacts, and we used them in tests we'd written in [Cucumber](https://cucumber.io/).
 
 [^1]: As you'll see, we've named it that because it supports the `World`
 
@@ -18,7 +18,7 @@ We've recently publicly released a Gem called [dvla-atlas](https://github.com/dv
 
 We follow Acceptance Test Driven Design (ATDD) wherever we can and use Cucumber and Gherkin as the backbone for expressing customer wants in a specification we can use to see if we've actually met that want. Oh, and we love ruby.
 
-```
+```gherkin
 Given I am using Cucumber
 When I write a specification
 Then I will have a series of steps
@@ -26,7 +26,7 @@ Then I will have a series of steps
 
 With the specification above, we have three steps with a clear arrange-act-assert order which collectively forms one scenario -- one test. On the programmatic side, these are modelled as three separate methods and to pass information from one to the next we use instance variables.
 
-Since we're using a dynamic language we can pop these into existance at will. This is fine but has two problems:
+Since we're using a dynamic language we can pop these into existence at will. This is fine but has two problems:
 
 1. Using very generic variable names
 2. Typos
@@ -41,9 +41,9 @@ expect(@badly_spelled_instance_variable).to be_nil
 
 ...will always succeed if we've misspelled our instance variable's name.
 
-To mitigate this problem, we've adopted a stategy of declaring upfront those bits of state we want to keep a hold of and pass from one step to another. We built a `Struct` in which we could declare the fields we wanted and a helper method we called `artefacts`. Declaring this upgront meant we thought quite hard about what to name these things and more meaning emerged. The `Struct` helped us catch misspelt fields by throwing exceptions at runtime if we used a non-existent field.
+To mitigate this problem, we've adopted a strategy of declaring upfront those bits of state we want to keep a hold of and pass from one step to another. We built a `Struct` in which we could declare the fields we wanted and a helper method we called `artefacts`. Declaring this upfront meant we thought quite hard about what to name these things and more meaning emerged. The `Struct` helped us catch misspelt fields by throwing exceptions at runtime if we used a non-existent field.
 
-Our needs grew though. We'd bolt [FakerMaker](https://billyruffian.github.io/faker_maker/) factory built objects in here with default values. `Struct` wasn't cutting it for us so we switched to full fat classes with neat control over object construction and defaults. This was transparent to us because we always used our lovely convenice method...
+Our needs grew though. We'd bolt [FakerMaker](https://billyruffian.github.io/faker_maker/) factory built objects in here with default values. `Struct` wasn't cutting it for us so we switched to full fat classes with neat control over object construction and defaults. This was transparent to us because we always used our lovely convenience method...
 
 ```ruby
 def artefacts
@@ -55,9 +55,9 @@ end
 artefacts.my_field
 ```
 
-Which breaks down as soon as you start grouping functionality into modules or classes because, if you're not very careful, you can end up with two (or more) distinct instances of `@artefacts` with different scopes. Singleton-patterm instances also don't fit our needs because we need to throw away all of the artefacts after each _scenario_ and can't have them leaking state between each other.
+Which breaks down as soon as you start grouping functionality into modules or classes because, if you're not very careful, you can end up with two (or more) distinct instances of `@artefacts` with different scopes. Singleton-pattern instances also don't fit our needs because we need to throw away all of the artefacts after each _scenario_ and can't have them leaking state between each other.
 
-So this is problem we want to solve: 
+So this is problem we want to solve:
 
 1. a place to define the state we want to share up front
 2. to have the runtime throw an error if some undefined state is referenced
@@ -65,11 +65,11 @@ So this is problem we want to solve:
 4. we want it to be super easy to use
 5. work transparently with bare methods and those in modules and classes
 
-So we wrote Altas. It's a small library, but a great deal of thought has gone into it and make it hit each of those needs.
+So we wrote Atlas. It's a small library, but a great deal of thought has gone into it and make it hit each of those needs.
 
 ## Atlas
 
-With Atlas, we hope to formalise what we were doing with artefacts without distrupting the way we like to write tests. Our goal was to leverage some functionality built into Cucumber called `World`[^2] while also having something nice and easy to pick up and use.
+With Atlas, we hope to formalise what we were doing with artefacts without disrupting the way we like to write tests. Our goal was to leverage some functionality built into Cucumber called `World`[^2] while also having something nice and easy to pick up and use.
 
 [^2]: If you haven't come across `World` in Cucumber before, it's a way of influencing the context within with a test scenario is run. You don't need to worry about the specifics for this post, as we'll explain them as they become relevant, but if you are interested in the inner workings you can find some tests that document the common uses for it in [the Ruby implementation of Cucumber](https://github.com/cucumber/cucumber-ruby/blob/main/features/docs/writing_support_code/world.feature)
 
@@ -97,7 +97,7 @@ World do
 end
 ```
 
-With the above set up, you'd be able to access `value` and call `add_to_value` in any test step, with that block being called again at the beginning of each new scenario to generate the context that it will be run in. Therefore, each test will start with a `value` of 2. It's on top of this Cucumber functionality that we built Atlas:
+With the above set-up, you'd be able to access `value` and call `add_to_value` in any test step, with that block being called again at the beginning of each new scenario to generate the context that it will be run in. Therefore, each test will start with a `value` of 2. It's on top of this Cucumber functionality that we built Atlas:
 
 ```ruby
 World do
@@ -121,7 +121,7 @@ World do
 end
 ```
 
-That gives all test steps access to the property `url`, which they can alter as much as they like to do whatever it is they need to do, with each new scenario getting a newly initalized world that is back to the default value
+That gives all test steps access to the property `url`, which they can alter as much as they like to do whatever it is they need to do, with each new scenario getting a newly initialised world that is back to the default value
 
 ### Scoping
 
@@ -136,7 +136,7 @@ end
 
 ### Trackable history
 
-Finally, this is something we've had a few people had implemented independently and Atlas felt like the perfect place to formalise this functionality. There are times where a test might want to validate a sequence, such as the order pages have been visited in a journey through a website. Historically, people were creating various data structures to store these details, however in Atlas all properties that are initialised also come with a history field that stores an array of all previous values that that property has held. Take the following example: 
+Finally, this is something we've had a few people had implemented independently and Atlas felt like the perfect place to formalise this functionality. There are times where a test might want to validate a sequence, such as the order pages have been visited in a journey through a website. Historically, people were creating various data structures to store these details, however in Atlas all properties that are initialised also come with a history field that stores an array of all previous values that that property has held. Take the following example:
 
 ```ruby
 World do
@@ -148,7 +148,7 @@ end
 ...
 
 Given 'the customer hits the submit button' do
-    artefacts.journey_status = fetch_journey_status # Should now be submitted 
+    artefacts.journey_status = fetch_journey_status # Should now be submitted
 end
 
 ...

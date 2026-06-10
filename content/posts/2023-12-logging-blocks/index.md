@@ -34,17 +34,17 @@ logger.warn('DB connection timed out. Reconnecting')
 [2023-12-15 09:09:49 45f91875] WARN -- : DB connection timed out. Reconnecting
 ```
 
-As you can see, we're only getting one log statement, with the `info` not being printed. But what does that mean under the bonnet? Let's take a look at what happens if we pass in a more complex parameter. 
+As you can see, we're only getting one log statement, with the `info` not being printed. But what does that mean under the bonnet? Let's take a look at what happens if we pass in a more complex parameter.
 
 ## Passing parameters
 
-Consider the following code snippet: 
+Consider the following code snippet:
 
 ```ruby
 logger.info("Current active transactions: #{TransactionCounter.count_transactions}")
 ```
 
-Not much fancier than what we were doing previous. We're now just interpolating the response from the method `count_transactions` into the message we are logging out. We don't know what is in that method but it could be quite a costly call with lots of calculations going on behind it, so if we are in an environment where we aren't logging anything at `info` level we probably don't want to make that call. Now, suppose we add the following line somewhere in `count_transactions`:
+Not much fancier than what we were doing previous. We're now just interpolating the response from the method `count_transactions` into the message we are logging out. We don't know what is in that method, but it could be quite a costly call with lots of calculations going on behind it, so if we are in an environment where we aren't logging anything at `info` level we probably don't want to make that call. Now, suppose we add the following line somewhere in `count_transactions`:
 
 ```ruby
 puts "Starting transaction count"
@@ -69,9 +69,9 @@ logger.info { "Current active transactions: #{TransactionCounter.count_transacti
 Now, we're passing a block into the logger and the logger will, assuming it is logging out the current log level, log out the value returned by the block. The block above will return the same string as before, so let's take a look and see if anything is logged this time:
 
 ```sh
- 
+
 ```
 
 That's more like it. This time we aren't calling `count_transactions`. Now, let's take a look at why that is.
 
-Whereas before we were seeing the string fully interpolated before the `info` method was called, we're now offloading that into the block we're passing into the logger. As the logger is now in control of calling that block to get the value to log out, it defers doing so until it knows if it should be logging at the current level. Thus, for logs that are too low level, we don't make any expensive calls and save a few CPU cycles. 
+Whereas before we were seeing the string fully interpolated before the `info` method was called, we're now offloading that into the block we're passing into the logger. As the logger is now in control of calling that block to get the value to log out, it defers doing so until it knows if it should be logging at the current level. Thus, for logs that are too low level, we don't make any expensive calls and save a few CPU cycles.

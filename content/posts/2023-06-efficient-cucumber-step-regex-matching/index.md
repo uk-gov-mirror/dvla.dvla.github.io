@@ -27,6 +27,7 @@ Given a message of 'I like Cucumber' was added to the queue
 ```
 
 The step can be captured using the following Cucumber Expression in the step definition block:
+
 ```ruby
 Given('a message of {string} was added to the queue') do |message_text|
     ...
@@ -182,7 +183,7 @@ For example, let's consider the following steps:
 Scenario: Checkout apples in basket
     Given there are 5 discounted apples in the basket
     ...
-    
+
 Scenario: Checkout medicine in basket
     Given there are 2 cough medicines in the basket
     ...

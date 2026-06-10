@@ -4,19 +4,19 @@ title: "TiL: The difference between exec and system in Ruby"
 description: "What exactly are exec and system doing and why do they differ?"
 draft: false
 date: 2024-09-23
-tags: ["Ruby", "exec", 'system', "Today I Learned"]
+tags: ["Ruby", "exec", "system", "Today I Learned"]
 categories: ["TIL", "Ruby"]
 ShowToc: true
 TocOpen: true
 ---
 
-Ruby provides a few different ways to execute commands against the underlying kernel programmatically, but they all work slightly differently. The simplest way to execute a command againts the shell is to surround it in backticks. For example, the following will run the command `date` and return whatever was output to `$stdout`.
+Ruby provides a few different ways to execute commands against the underlying kernel programmatically, but they all work slightly differently. The simplest way to execute a command against the shell is to surround it in backticks. For example, the following will run the command `date` and return whatever was output to `$stdout`.
 
 ```ruby
 current_date = `date`
 ```
 
-However, there are also more explict methods you can call. In particular, there is `exec` and `system` which look like they do the same thing at a quick glance. However, they actually work very differently once you get down into what they are doing.
+However, there are also more explicit methods you can call. In particular, there is `exec` and `system` which look like they do the same thing at a quick glance. However, they actually work very differently once you get down into what they are doing.
 
 # Exec
 
@@ -46,6 +46,7 @@ puts 'Getting the date'
 system 'date'
 puts value * 2
 ```
+
 Now that we using system, the final line will execute and our output will look like the following:
 
 ```shell
@@ -58,4 +59,4 @@ Much more useful if you need to quickly run a command as part of your code and d
 
 # A word of warning
 
-As with anything like this, it is always worth keeping in mind the risk of executing a command aganst the shell directly. No matter which way you are doing it, never execute anything you aren't confident you understand everything it can do.
+As with anything like this, it is always worth keeping in mind the risk of executing a command against the shell directly. No matter which way you are doing it, never execute anything you aren't confident you understand everything it can do.

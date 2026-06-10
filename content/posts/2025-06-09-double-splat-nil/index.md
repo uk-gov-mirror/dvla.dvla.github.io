@@ -4,7 +4,7 @@ title: "TiL: Double Splat Nil in Ruby"
 description: "What is a Double Splat Nil and how does it help clamp down on unwanted named arguments"
 draft: false
 date: 2025-06-09
-tags: ["Ruby", "nil", 'double splat', "Today I Learned"]
+tags: ["Ruby", "nil", "double splat", "Today I Learned"]
 categories: ["TIL", "Ruby"]
 ShowToc: false
 TocOpen: false
@@ -48,6 +48,7 @@ double_splat(arg_one: 123, arg_two: 'Four Five Six', arg_three: 789)
 ```
 
 That prints out the following hash:
+
 ```ruby
 {:arg_one=>123, :arg_two=>"Four Five Six", :arg_three=>789}
 ```

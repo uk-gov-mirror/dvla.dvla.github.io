@@ -1,0 +1,18 @@
+# Docs: https://github.com/DavidAnson/markdownlint/blob/main/README.md#configuration
+default: true
+
+# MD033/no-inline-html
+# Rule: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md033---no-inline-html
+# Hugo shortcodes (e.g. {{< figure-a11y ... >}}) are treated as inline HTML by markdownlint.
+MD033: false
+
+# MD013/line-length
+# Rule: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md013---line-length
+# Avoid erroring on long URLs, shortcode lines, and code examples.
+MD013: false
+
+# MD041/first-line-heading/first-line-h1
+# Rule: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md041---first-line-headingfirst-line-h1
+# Front matter + optional title conventions in posts and pages mean that the first line of the markdown
+# file isn't always a heading, so disable this rule.
+MD041: false

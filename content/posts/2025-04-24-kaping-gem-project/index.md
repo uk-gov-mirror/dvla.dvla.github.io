@@ -10,7 +10,7 @@ ShowToc: true
 TocOpen: true
 ---
 
-**_You can only stretch elastic so far before it goes KA-PING!_**
+## You can only stretch elastic so far before it goes "KA-PING!"
 
 The starting point for creating a new DVLA gem to integrate with AWS OpenSearch and ElasticSearch was the amount of documentation
 there is surrounding the technology. There is a lot for a reason, it's a very powerful and useful tool,

@@ -72,8 +72,8 @@ public OAuth2AccessTokenResponseClient<OAuthAuthorizationCodeGrantRequest access
 
 From this point it is now necessary to create the converter:
 
-    It is important to note whether or not you are creating the beans or are they being managed and created by Spring
-    as you could incur a number of errors if the objects are manually instantiated.
+> It is important to note whether or not you are creating the beans or are they being managed and created by Spring
+> as you could incur a number of errors if the objects are manually instantiated.
 
 The converter is the main class that allows the overriding of the request parameters.
 
@@ -126,16 +126,16 @@ We now have a JWT token ready to sign and verify with KMS.
 ```java
 public String sign(JWTClaimSet claimSet) {
   // ...
-  
+
   // Choose a token alg based on what is supported by your auth Server
   JWSHeader header = new JWSHeader(TOKEN_ALG);
 
   Base64URL encodedHeader = header.toBase64URL();
   Base64URL encodedClaims = Base64URL.encode(claimSet.toString());
-  
+
   // create String to sign with KMS
   String signingString = encodedHeader + "." + encodedClaims;
-  
+
   // ...
 }
 ```
@@ -158,7 +158,6 @@ Signing alg can be selected from a predefined set using
   SignResponse response = kmsClient.sign(signRequest);
   String signature = Base64.encode(response.signature().asByteArray()).toString();
   return signature;
-  
 ```
 
 The above call now provides a Base64 encoded version of the signed string that is attached to the request parameters for
@@ -175,6 +174,6 @@ Bean that sets alternative signatures using the JWSAlgorithmResolver.
 public JwtDecoderFactory<ClientRegistration> idTokenDecoderFactory() {
   OidcTokenDecoderFactory idTokenDecoderFactory = new OidcTokenDecoderFactory();
   idTokenDecoderFactory.setJwsAlgorithmResolver(clientRegistration -> SignatureAlgorithm.RS512);
-return idTokenDecoderFactory;
+  return idTokenDecoderFactory;
 }
 ```

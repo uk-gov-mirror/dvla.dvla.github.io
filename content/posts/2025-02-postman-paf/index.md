@@ -18,20 +18,19 @@ We've recently released a library called [postman-paf-js](https://github.com/dvl
 
 To put it simply, UK addresses are more complicated than they might seem. But aren't addresses just a few set lines that appear on your letters? Unfortunately, it's not that simple! Most addresses in the UK are stored in a database called the Postal Address File (PAF), which is owned and managed by the
 Royal Mail. This database includes over 30 million UK postal delivery addresses and 1.8 million postcodes. However, these addresses are not stored in the familiar format you
-see on your envelope. Instead, they are stored in a specific data structure, as shown
-[here](https://www.poweredbypaf.com/wp-content/uploads/2017/07/Latest-Programmers_guide_Edition-7-Version-6-1.pdf#page=12)
+see on your envelope. Instead, they are [stored in a specific data structure, as shown here](https://www.poweredbypaf.com/wp-content/uploads/2017/07/Latest-Programmers_guide_Edition-7-Version-6-1.pdf#page=12)
 
 Example of a PAF address
 
-```JSON
+```json
 {
-   "thoroughfareName": "NORTH EAST SECTOR",
-   "doubleDependentLocality": "BOURNEMOUTH INTERNATIONAL AIRPORT",
-   "postcode": "BH23 6NE",
-   "dependentLocality": "HURN",
-   "postTown": "CHRISTCHURCH",
-   "buildingName": "A B P 21",
-   "organisationName": "BREATHE SAFETY LTD"
+  "thoroughfareName": "NORTH EAST SECTOR",
+  "doubleDependentLocality": "BOURNEMOUTH INTERNATIONAL AIRPORT",
+  "postcode": "BH23 6NE",
+  "dependentLocality": "HURN",
+  "postTown": "CHRISTCHURCH",
+  "buildingName": "A B P 21",
+  "organisationName": "BREATHE SAFETY LTD"
 }
 ```
 
@@ -51,15 +50,15 @@ Mail's guidelines.
 
 An example of the process followed on converting a Structured address to an unstructured address can be found below:
 
-```JSON
+```json
 {
-   "structuredAddress": {
-       "buildingName": "ENDEAVOUR QUAY",
-       "subBuildingName": "THE DESIGN OFFICE",
-       "thoroughfareName": "MUMBY ROAD",
-       "postcode": "PO12 1AH",
-       "postTown": "GOSPORT"
-   }
+  "structuredAddress": {
+    "buildingName": "ENDEAVOUR QUAY",
+    "subBuildingName": "THE DESIGN OFFICE",
+    "thoroughfareName": "MUMBY ROAD",
+    "postcode": "PO12 1AH",
+    "postTown": "GOSPORT"
+  }
 }
 ```
 
@@ -75,32 +74,32 @@ In this case none of these exceptions apply.
 
 Otherwise, the Sub Building Name should appear on a line preceding the Building Name, Thoroughfare and Locality information.
 
-```JSON
+```json
 {
-   "line1": "THE DESIGN OFFICE",
-   "line2": "ENDEAVOUR QUAY"
+  "line1": "THE DESIGN OFFICE",
+  "line2": "ENDEAVOUR QUAY"
 }
 ```
 
 ### Step 2 - Order Thoroughfare/locality
 
-```JSON
+```json
 {
-    "line1": "THE DESIGN OFFICE",
-    "line2": "ENDEAVOUR QUAY",
-    "line3": "MUMBY ROAD"
+  "line1": "THE DESIGN OFFICE",
+  "line2": "ENDEAVOUR QUAY",
+  "line3": "MUMBY ROAD"
 }
 ```
 
 ### Step 3 - Add in post-town and postcode
 
-```JSON
+```json
 {
-    "line1": "THE DESIGN OFFICE",
-    "line2": "ENDEAVOUR QUAY",
-    "line3": "MUMBY ROAD",
-    "line5": "GOSPORT",
-    "postcode": "PO12 1AH"
+  "line1": "THE DESIGN OFFICE",
+  "line2": "ENDEAVOUR QUAY",
+  "line3": "MUMBY ROAD",
+  "line5": "GOSPORT",
+  "postcode": "PO12 1AH"
 }
 ```
 

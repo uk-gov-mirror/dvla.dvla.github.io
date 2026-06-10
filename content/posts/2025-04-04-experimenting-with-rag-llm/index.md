@@ -47,11 +47,14 @@ OpenAI.configure do |c|
   c.uri_base = 'http://127.0.0.1:1337/v1'
 end
 
-llm = Langchain::LLM::OpenAI.new(api_key: 'locally-model-no-api-key',
-                                 default_options:{
-                                   chat_model: MODEL,
-                                   completion_model: MODEL,
-                                   embedding_model: MODEL } )
+llm = Langchain::LLM::OpenAI.new(
+  api_key: 'locally-model-no-api-key',
+  default_options:{
+    chat_model: MODEL,
+    completion_model: MODEL,
+    embedding_model: MODEL,
+  },
+)
 ```
 
 I also want an assistant client. An assistant stores context to make conversational interactions more natural. I'm going to pass a block into the constructor which will be called as the response is streamed rather than wait until a complete result is received because I just want to print the response to the console as it is generated.
@@ -138,21 +141,22 @@ loop do
 
   embeddings << llm.embed(text: query, model: 'llama3.2-3b-instruct').embedding
   context = db.entities.hybrid_search(
-                                      collection_name: 'hr',
-                                      search: embeddings.map {
-                                        { anns_field: 'vector',
-                                          data: [it], # Ruby v3.4 `it` block keyword
-                                          output_fields: ['text'],
-                                          limit: 5
-                                        }  },
-                                      rerank: {
-                                        strategy: 'rrf',
-                                        params: { k: 10 }
-                                      },
-                                      limit: 5,
-                                      output_fields: ['text'])['data'].map {
-                                        it['text']
-                                      }.join("\n\n")
+    collection_name: 'hr',
+    search: embeddings.map {
+      {
+        anns_field: 'vector',
+        data: [it], # Ruby v3.4 `it` block keyword
+        output_fields: ['text'],
+        limit: 5,
+      }
+    },
+    rerank: {
+      strategy: 'rrf',
+      params: { k: 10 }
+    },
+    limit: 5,
+    output_fields: ['text'],
+  )['data'].map { it['text'] }.join("\n\n")
 
   prompt = <<~PROMPT
     Use the following pieces of information enclosed in <context> tags and from previous contexts to provide an answer to the question enclosed in <question> tags. Do not mention the <context> tags in your answer.

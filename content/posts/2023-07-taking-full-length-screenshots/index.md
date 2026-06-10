@@ -24,19 +24,19 @@ Both Chrome and Edge use the same shortcuts and developer tools. So follow the s
 
 1. Once on the page you would like to capture you should firstly access Developer Tools by clicking `Cmd` + `Opt` + `I` _(on Mac)_ or `Ctrl` + `Shift` + `I` _(on Windows)_
 
-   {{<figure width="1200" height="656" src="images/Chrome-Step-1.jpg">}}
+   {{<figure align="center" width="1200" height="656" src="images/Chrome-Step-1.jpg">}}
 
 2. Then, press `Cmd` + `shift` + `P` _(on Mac)_ or `Ctrl` + `Shift` + `P` _(on Windows)_.
 
-   {{<figure width="1200" height="656" src="images/Chrome-Step-2.jpg">}}
+   {{<figure align="center" width="1200" height="656" src="images/Chrome-Step-2.jpg">}}
 
 3. In the search bar, immediately after the word Run >, type "screenshot".
 
-   {{<figure width="1200" height="654" src="images/Chrome-Step-3.jpg">}}
+   {{<figure align="center" width="1200" height="654" src="images/Chrome-Step-3.jpg">}}
 
 4. Select 'Capture full size screenshot', and Chrome/Edge will automatically save a full-page screenshot to your Downloads folder as a png, and it will generate the name based off the webpage's URL.
 
-   {{<figure width="1200" height="655" src="images/Chrome-Step-4.jpg">}}
+   {{<figure align="center" width="1200" height="655" src="images/Chrome-Step-4.jpg">}}
 
 ## Firefox
 
@@ -44,25 +44,25 @@ With Firefox there are two methods to allow you take to take full size screensho
 
 1. Firstly navigate to the page you would like to capture, and then access Developer Tools by clicking `Cmd` + `Opt` + `I` _(on Mac)_ or `Ctrl` + `Shift` + `I` _(on Windows)_
 
-   {{<figure width="1200" height="570" src="images/Firefox-Step-1.jpg">}}
+   {{<figure align="center" width="1200" height="570" src="images/Firefox-Step-1.jpg">}}
 
 2. Next you will want to open the developer tools setting menu by clicking on the three dots on the top right of the dev tools menu
 
-   {{<figure width="1200" height="571" src="images/Firefox-Step-2.jpg">}}
+   {{<figure align="center" width="1200" height="571" src="images/Firefox-Step-2.jpg">}}
 
 3. Once this is opened you will want to enable the "Take a screenshot of the entire page" option by clicking the tick box in "Available Toolbox Buttons"
 
-   {{<figure width="1200" height="569" src="images/Firefox-Step-3.jpg">}}
+   {{<figure align="center" width="1200" height="569" src="images/Firefox-Step-3.jpg">}}
 
-   {{<figure width="766" height="464" src="images/Firefox-Step-3.1.jpg">}}
+   {{<figure align="center" width="766" height="464" src="images/Firefox-Step-3.1.jpg">}}
 
 4. Once that is enabled you will now have access to the _"Take a screenshot of the entire page"_ (the small camera) button.
 
-   {{<figure width="354" height="128" src="images/Firefox-Step-4.jpg">}}
+   {{<figure align="center" width="354" height="128" src="images/Firefox-Step-4.jpg">}}
 
 5. When the button is clicked it will capture a screenshot of the entire page and will save it as a png to your downloads folder using the date and time the screenshot was taken followed by '-fullpage' as the name.
 
-   {{<figure width="1200" height="604" src="images/Firefox-Step-5.jpg">}}
+   {{<figure align="center" width="1200" height="604" src="images/Firefox-Step-5.jpg">}}
 
 ### Second method
 
@@ -71,19 +71,19 @@ The second method is a lot simpler and doesn't require you to access the develop
 
 1. Once on the page you would like to capture, you can right-click and select 'Take Screenshot'
 
-   {{<figure width="1200" height="568" src="images/Firefox-2-Step-1.jpg">}}
+   {{<figure align="center" width="1200" height="568" src="images/Firefox-2-Step-1.jpg">}}
 
 2. Next the screen will go dark, and you will be given the option to drag and select the region you would like to capture. But to capture the full screen you must click on the 'Save full page' button
 
-   {{<figure width="1200" height="574" src="images/Firefox-2-Step-2.jpg">}}
+   {{<figure align="center" width="1200" height="574" src="images/Firefox-2-Step-2.jpg">}}
 
 3. After the button is clicked it will display the screenshot and give you the option to either download or just copy the screenshot
 
-   {{<figure width="1200" height="577" src="images/Firefox-2-Step-3.jpg">}}
+   {{<figure align="center" width="1200" height="577" src="images/Firefox-2-Step-3.jpg">}}
 
 4. If you choose to download it then it will get saved to your downloads folder as a png using the current date and time followed by the page's title as the screenshots name
 
-   {{<figure width="1200" height="173" src="images/Firefox-2-Step-4.jpg">}}
+   {{<figure align="center" width="1200" height="173" src="images/Firefox-2-Step-4.jpg">}}
 
 ## Safari
 
@@ -93,11 +93,11 @@ For Safari, it requires a few extra steps, such as enabling the developer consol
 
 1. Firstly you will need to navigate to safari's settings. This can be located by clicking the safari tab and selecting settings. Or by simply clicking `Cmd` + `,`
 
-   {{<figure width="1200" height="437" src="images/Safari-Step-1.jpg">}}
+   {{<figure align="center" width="1200" height="437" src="images/Safari-Step-1.jpg">}}
 
 2. Next you will need to navigate to the "Advanced" tab in safari's settings and then enable "Show Develop menu in menu bar". Once this is ticked you will now have access to the Developer menu in safari.
 
-   {{<figure width="1200" height="680" src="images/Safari-Step-2.jpg">}}
+   {{<figure align="center" width="1200" height="680" src="images/Safari-Step-2.jpg">}}
 
 ### How to capture a screenshot in safari
 
@@ -105,15 +105,15 @@ Once you have got the developer console set up then you should be ready to captu
 
 1. Once on the page you would like to capture you should firstly access Developer Tools by clicking `Cmd` + `Opt` + `I`
 
-   {{<figure width="1200" height="713" src="images/Safari-Step-3.jpg">}}
+   {{<figure align="center" width="1200" height="713" src="images/Safari-Step-3.jpg">}}
 
 2. `Control-click` or `right-click` while hovering over the **< html >** tag. You’ll get a flyout menu, within which you can select **Capture Screenshot**.
 
-   {{<figure width="1200" height="712" src="images/Safari-Step-4.jpg">}}
+   {{<figure align="center" width="1200" height="712" src="images/Safari-Step-4.jpg">}}
 
 3. Once clicked you will then be offered the choice of where you would like to save the screenshot and what you would like to name it.
 
-   {{<figure width="1136" height="524" src="images/Safari-Step-5.jpg">}}
+   {{<figure align="center" width="1136" height="524" src="images/Safari-Step-5.jpg">}}
 
 ## Why would I want this?
 

@@ -69,7 +69,7 @@ logger.info { "Current active transactions: #{TransactionCounter.count_transacti
 Now, we're passing a block into the logger and the logger will, assuming it is logging out the current log level, log out the value returned by the block. The block above will return the same string as before, so let's take a look and see if anything is logged this time:
 
 ```sh
-
+# (no output)
 ```
 
 That's more like it. This time we aren't calling `count_transactions`. Now, let's take a look at why that is.

@@ -35,7 +35,7 @@ to consider when using it.
 
 It works by converting a given block to a [Proc](https://ruby-doc.org/core-3.0.0/Proc.html) and registers it for execution when the program exits.
 
-## Example:
+## Example
 
 Here's how this function is used in the TYR project to clear our Mailsac account of all temporary inboxes created within the tests.
 

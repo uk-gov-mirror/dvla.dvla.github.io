@@ -24,7 +24,7 @@ Atlas is a repository of database users. A user assumes a role which has databas
 Access could be to one or more databases.
 Permissions could be read, read/write, etc.
 
-All the info you could ever want is here: https://www.mongodb.com/docs/atlas/
+All the info you could ever want is here: [MongoDB Atlas: Multi-Cloud Database Service](https://www.mongodb.com/docs/atlas/)
 
 ## Why do this? Why not create a new user every time?
 
@@ -39,7 +39,7 @@ Let's check the existing users:
 
 In Terminal:
 
-```ruby
+```shell
 atlas dbusers list
 ```
 
@@ -68,9 +68,9 @@ Which returns a boolean value.
 
 Add this to the env.rb in your test pack.
 
-> **Note:** the 'LOG.info' commands are to output info to console.
+> **Note:** the `LOG.info` commands are to output info to console.
 
-````ruby
+```ruby
 require 'date'
 
 date_today = Date.today.strftime('%Y-%m-%d')
@@ -88,5 +88,5 @@ LOG.info { 'Creating enquirer user in Atlas: '.cyan + "'#{enquirier_username}'" 
 system "atlas dbusers create readAnyDatabase -u #{enquirier_username} --awsIAMType ROLE --deleteAfter #{date_today}T23:59:59Z"
 else
 LOG.info { 'Enquiry user already created: '.cyan + "'#{enquirier_username}'" }
-end```
-````
+end
+```

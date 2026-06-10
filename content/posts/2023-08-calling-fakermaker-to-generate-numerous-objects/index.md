@@ -43,19 +43,19 @@ But what if the test requires MORE THAN ONE instance of this fairly complex obje
 
 This can be done in 2 ways:
 
-1. Using Array.new:
-    
-    ```ruby
-    multiple_orders = Array.new(3) { FM[:grocery_order].build.as_json }
-    ```
-    
-    This will create a new array of length 3 AND build 3 instances of the grocery_order object. The multiple_orders array can then be returned for your tests.
+1. Using `Array.new`:
 
-2. Using .map:
-    
-    ```ruby
-    multiple_orders = 3.times.map { FM[:grocery_order].build.as_json }
-    ```
+   ```ruby
+   multiple_orders = Array.new(3) { FM[:grocery_order].build.as_json }
+   ```
+
+   This will create a new array of length 3 AND build 3 instances of the grocery_order object. The multiple_orders array can then be returned for your tests.
+
+2. Using `.map`:
+
+   ```ruby
+   multiple_orders = 3.times.map { FM[:grocery_order].build.as_json }
+   ```
 
 This will do the exact same thing as the above. This is a more elegant way of writing the above code, and is more readable, in my opinion.
 

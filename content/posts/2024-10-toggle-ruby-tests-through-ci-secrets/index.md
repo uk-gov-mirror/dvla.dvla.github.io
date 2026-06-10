@@ -10,9 +10,7 @@ ShowToc: true
 TocOpen: true
 ---
 
-# _TiL_ **how to toggle Ruby scenarios to be run using CI pipeline secrets**
-
----
+## _TiL_ how to toggle Ruby scenarios to be run using CI pipeline secrets
 
 ## Scenario
 
@@ -98,11 +96,11 @@ Then the system produces the following error:
 
 ### And Finally
 
-{{<figure width="1508" height="266" align="center" src="images/Drone secrets banner screenshot.png" caption="Drone Repository Settings Banner">}}
+{{<figure width="1508" height="266" align="center" src="images/Drone secrets banner screenshot.jpg" caption="Drone Repository Settings Banner">}}
 
 With all this in place, as soon as we require function X scenarios to stop running and our unhappy path tests to start, all we need to do is add a secret to our CI pipeline called `RUN_FUNCTION_X` and set it to `:no`.
 
-{{<figure width="419" height="366" align="center" src="images/Drone secrets pop up box.png" caption="Drone Secret Pop Up Box" >}}
+{{<figure width="419" height="366" align="center" src="images/Drone secrets pop up box.jpg" caption="Drone Secret Pop Up Box" >}}
 
 Then all you have to do is delete the secret once the function is reintroduced, the removal of the config, unhappy path tests and tags afterwards is up to your discretion depending on whether that functionality is to be temporarily removed again in the future or not.
 

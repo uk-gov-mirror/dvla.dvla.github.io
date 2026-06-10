@@ -18,13 +18,13 @@ Many individuals find reading extensive written documents challenging. Recent te
 
 As a government agency, we are committed to ensuring that content is handled securely and remains accessible only to authorised staff within the agency. To achieve this, we created a Microsoft Teams Bot called "Audry". Audry allows a user to upload a document and automatically transform it into a podcast or news briefing. We wanted to produce audio that features authentic regional UK accents.
 
-{{<figure width="768" height="326" align="center" src="images/audry.png" caption="Audry Teams Bot">}}
+{{<figure width="768" height="326" align="center" src="images/audry.jpg" caption="Audry Teams Bot">}}
 
 ## Agentic Review
 
 Many advances in Generative AI have originated in the United States, resulting in some technology displaying a US bias. For example, generated transcripts occasionally contained American expressions that are unsuitable for a UK audience, such as "DMV" instead of "DVLA". To address this, we adopted an agentic approach to reviewing the transcript. Using [LangGraph](https://www.langchain.com/langgraph), we created three personas to review the transcript, and a fourth expert to edit it based on the feedback.
 
-{{<figure width="531 " height=" 410" align="left" src="images/agentic_edit_diagram.png" caption="A flow-chart diagram of the Agentic Review Process, starting on the left and flowing into 3 parallel reviewers (British Expert, Content Reviewer, Expressive Delivery Advisor) before being consolidated into the Editor before the end on the right." attr="Gethin James via Google NanoBanana">}}
+{{<figure width="531 " height=" 410" align="left" src="images/agentic_edit_diagram.jpg" caption="A flow-chart diagram of the Agentic Review Process, starting on the left and flowing into 3 parallel reviewers (British Expert, Content Reviewer, Expressive Delivery Advisor) before being consolidated into the Editor before the end on the right." attr="Gethin James via Google NanoBanana">}}
 
 - British Expert: Assessed grammar and verified the use of appropriate British cultural references.
 - Content Reviewer: Moderated content for compliance with UK government standards.

@@ -87,17 +87,17 @@ When I run the client code, I see the following output:
 
 ```shell
 Starting up...
-Making request...0
-Making request...1
-Making request...2
-Making request...3
-Making request...4
+  Making request...0
+  Making request...1
+  Making request...2
+  Making request...3
+  Making request...4
 Finished!
- 	Done with request 3: Hello world!
- 	Done with request 4: Hello world!
- 	Done with request 1: Hello world!
- 	Done with request 2: Hello world!
- 	Done with request 0: Hello world!
+  Done with request 3: Hello world!
+  Done with request 4: Hello world!
+  Done with request 1: Hello world!
+  Done with request 2: Hello world!
+  Done with request 0: Hello world!
 ```
 
 The main thread continues to run while the network requests are in progress. When the requests complete, the fibers are resumed and the results are printed to the console. All the fibers run to completion before the program exits. Nice.

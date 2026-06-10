@@ -52,60 +52,60 @@ An example: we need to send a API request with "city" set to "London" and "count
 This can be done in 4 steps by:
 
 1. Initialising a template request:
-    
-    ```ruby
-    body = FM[:example_request].build.as_json
-    => {"name"=>"Eleni Daniel",
-        "buildingNumber"=>"50962",
-        "streetName"=>"Jacqulyn Lights",
-        "city"=>"New Rubin",
-        "country"=>"Isle of Man"}
-    ```
+
+   ```ruby
+   body = FM[:example_request].build.as_json
+   => {"name"=>"Eleni Daniel",
+       "buildingNumber"=>"50962",
+       "streetName"=>"Jacqulyn Lights",
+       "city"=>"New Rubin",
+       "country"=>"Isle of Man"}
+   ```
 
 2. Overwriting the value of "city" in the request:
-    
-    ```ruby
-    body["city"] = "London"
-    ```
+
+   ```ruby
+   body["city"] = "London"
+   ```
 
 3. Overwriting the value of "country" in the request:
-    
-    ```ruby
-    body["country"] = "United Kingom"
-    ```
+
+   ```ruby
+   body["country"] = "United Kingom"
+   ```
 
 4. Sending a request containing the overwritten body:
-    
-    ```ruby
-    body
-    => {"name"=>"Eleni Daniel",
-      "buildingNumber"=>"50962",
-      "streetName"=>"Jacqulyn Lights",
-      "city"=>"London",
-      "country"=>"United Kingdom"}
-    ```
+
+   ```ruby
+   body
+   => {"name"=>"Eleni Daniel",
+     "buildingNumber"=>"50962",
+     "streetName"=>"Jacqulyn Lights",
+     "city"=>"London",
+     "country"=>"United Kingdom"}
+   ```
 
 Though this works, it can be considered "more expensive" than needed, as today I learned from a colleague a simple trick to do this more efficiently in just 2 steps...
 
 ## Efficient initialising
 
 1. Initialising the request with the values we need for the relevant parameter:
-    
-    ```ruby
-    body =
-      FM[:example_request].build(city: "London", country: "United Kingdom").as_json
-    ```
+
+   ```ruby
+   body =
+     FM[:example_request].build(city: "London", country: "United Kingdom").as_json
+   ```
 
 2. Sending a request containing the efficiently initialised body:
-    
-    ```ruby
-    body
-    => {"name"=>"Msgr. Ernesto Reynolds",
-    "buildingNumber"=>"942",
-    "streetName"=>"Goyette Passage",
-    "city"=>"London",
-    "country"=>"United Kingdom"}
-    ```
+
+   ```ruby
+   body
+   => {"name"=>"Msgr. Ernesto Reynolds",
+   "buildingNumber"=>"942",
+   "streetName"=>"Goyette Passage",
+   "city"=>"London",
+   "country"=>"United Kingdom"}
+   ```
 
 Job done. Initialising our test data was done more efficiently in a single line of code.
 

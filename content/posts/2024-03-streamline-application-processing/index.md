@@ -34,7 +34,7 @@ Building upon existing expertise with AWS infrastructure, DVLA leveraged AWS Ste
 
 This is where the application process engine was born, a dynamic workflow engine designed to navigate applications through various stages. APE embodies versatility, executing generic business functionalities common to most applications.
 
-{{<figure align=center width="1748" height="730" src="images/application-process-engine.png" caption="Application process engine">}}
+{{<figure align=center width="1600" height="668" src="images/application-process-engine.jpg" caption="Application process engine">}}
 
 The diagram offers a birdseye view of the orchestration of the application across its diverse phases. The workflows dedicated to driver applications are compartmentalised and self-contained, executing only the driving licence application-specific steps essential for completing each phase.
 

@@ -15,12 +15,11 @@ the AWS stacks within their limit.
 
 To ensure these steps run before the build times out, you can wrap your cucumber command in the linux timeout command within the drone pipeline
 
-Example:
+Example commands:
 
-```
-commands:
-    - cd functional-tests || exit 1
-    - timeout -k 10 10m bundle exec rake test
+```shell
+cd functional-tests || exit 1
+timeout -k 10 10m bundle exec rake test
 ```
 
 ## Linux Timeout
@@ -30,7 +29,7 @@ if the given command is still running it will be terminated.
 
 Timeout command:
 
-```
+```shell
 timeout [OPTIONS] DURATION COMMAND [ARG]…
 ```
 

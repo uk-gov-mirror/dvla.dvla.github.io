@@ -20,7 +20,7 @@ In this post we’ll explore each of these stages in a bit more detail.
 
 ## Describing our data formats
 
-{{<figure src="images/yml-example.png" title="A JSON schema document in yml format" >}}
+{{<figure width="1381" height="754" src="images/yml-example.jpg" title="A JSON schema document in yml format" >}}
 
 We use a shared code repository to describe our data models using JSON schema. These take the form of yml documents, organised around the structure of our product teams, for example Driving Licence, Vehicles or Payments.
 
@@ -36,7 +36,7 @@ We also have a set of test and build scripts that help ensure consistency and qu
 
 ## Collaboration and Peer Review
 
-{{<figure src="images/peer-review.png" title="An example of a pull request reviewing a schema" >}}
+{{<figure width="1381" height="1005" src="images/peer-review.jpg" title="An example of a pull request reviewing a schema" >}}
 
 Peer review forms an important part of the process and is an opportunity to review, discuss and improve our data models. This all takes place collaboratively and openly before we write any code, which we have found to really increase efficiency and quality.
 
@@ -49,7 +49,7 @@ This process often generates insightful questions that help develop a clear unde
 
 ## Human-friendly documentation
 
-{{<figure src="images/html-docs.png" title="Human friendly documentation published as HTML" >}}
+{{<figure width="1381" height="1002" src="images/html-docs.jpg" title="Human friendly documentation published as HTML" >}}
 
 We use the [json-schema-static-docs](https://tomcollins.github.io/json-schema-static-docs/) library to generate markdown versions of our schema definitions. These are published as a static website, using the hugo framework, and made available to developers and other stakeholders.
 
@@ -66,7 +66,7 @@ This all allows our teams to use the schema within their processes and applicati
 
 ## Code generation
 
-{{<figure src="images/code-gen.png" title="Typescript interfaces generated fron JSON Schema" >}}
+{{<figure width="1381" height="751" src="images/code-gen.jpg" title="Typescript interfaces generated fron JSON Schema" >}}
 
 Finally, our build process includes code generation steps that creates representations of our data models in Java and TypeScript. This allows teams to import the generated code into their applications to give them strongly typed models, making it easier to work with data and reducing the opportunity for various types of error.
 

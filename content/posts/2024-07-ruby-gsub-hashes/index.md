@@ -27,9 +27,9 @@ But what if you wanted to do something different for each match? Well, because `
 This can quickly become unmanageable. However, there is another way we can interact with `gsub`. Instead of simply giving it a string as the second argument, we can pass in a hash of matches, with the keys being potential matches and the values being the replacement strings.
 
 ```ruby
-tea_party_matches ={
-    '3' => 'a few',
-    '5' => 'several'
+tea_party_matches = {
+  '3' => 'a few',
+  '5' => 'several'
 }
 'There are 5 cakes and 3 teapots on the table'.gsub(/\d/, tea_party_matches)
 # => There are several cakes and a few teapots on the table

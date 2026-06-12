@@ -2,7 +2,7 @@
 author: ["Phillip Rees", "Simon Evans"]
 title: "DVLA @ AI Engineering Lab Hackathon"
 description: "TL;DR: At a cross-government hackathon, two DVLA teams used AI agents with strong planning documentation and learned that context and workflow mattered much more than their prompting."
-draft: true
+draft: false
 date: 2026-06-03
 tags:
   [

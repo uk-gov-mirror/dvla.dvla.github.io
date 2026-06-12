@@ -4,8 +4,7 @@ title: "TiL: Adding numerous tags to ParallelTests in cucumber elegantly "
 description: "Creating numerous tags to be included/excluded for ParallelTests in cucumber elegantly"
 draft: false
 date: 2024-07-02
-tags:
-  ["Ruby", "ParallelTests", "Tags", "Cucumber", "Testing", "Today I Learned"]
+tags: ["Ruby", "ParallelTests", "Tags", "Cucumber", "Testing", "Today I Learned"]
 categories: ["TIL", "Ruby", "Cucumber", "ParallelTests", "Testing"]
 ShowToc: true
 TocOpen: true

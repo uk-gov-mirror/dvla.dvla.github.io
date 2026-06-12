@@ -51,7 +51,7 @@ Parallel.map(test_data, in_processes: 2)  do |person|
 end
 ```
 
-```
+```shell
 I, [2023-05-15T13:34:15.480703 #75155]  INFO -- : Seeding details about Bob
 I, [2023-05-15T13:34:15.480834 #75156]  INFO -- : Seeding details about Alice
 I, [2023-05-15T13:34:15.481945 #75156]  INFO -- : Insert successful
@@ -64,7 +64,7 @@ Now, in this example we could probably have a guess based on the process ids tha
 
 ## Corralling our test cases with Correlation Ids
 
-Correlation ids are a common way to keep track of the flow of a given flow through a system, which makes them exactly what we are looking for to solve our current problem. Lets get Herodotus set up in the above example and then we will take a dive into how it works under the bonnet.
+Correlation ids are a common way to keep track of the flow of a given flow through a system, which makes them exactly what we are looking for to solve our current problem. Let's get Herodotus set up in the above example, and then we will take a dive into how it works under the bonnet.
 
 ```ruby
 module DatabaseAccess
@@ -98,7 +98,7 @@ Parallel.map(test_data, in_processes: 2)  do |person|
 end
 ```
 
-```
+```shell
 [2023-05-15 13:58:43 20e66f0f] INFO -- : Seeding details about Alice
 [2023-05-15 13:58:43 ab0506e8] INFO -- : Seeding details about Bob
 [2023-05-15 13:58:43 20e66f0f] INFO -- : Insert successful
@@ -168,7 +168,7 @@ end
 
 Now, while the above logs are a great starting point, it's also important to allow for a degree of flexibility. As such, Herodotus allows for the following configuration changes to be made:
 
-```ruby 
+```ruby
 DVLA::Herodotus.configure do |config|
   config.system_name = 'person-database-testpack'
   config.pid = true
@@ -180,7 +180,7 @@ We'll have a quick overview of the first two before taking a dive into what is g
 
 First up, `system_name` is nice and simple. This allows you to add an overall system name to the logs that are being output. `pid` allows you to mimic the behaviour of the default logger, adding the process id to the output at the start of a log message. If we turn both of these on and re-run our test from before, we get an output that looks like this:
 
-```
+```shell
 [person-database-testpack 2023-05-15 14:59:27 683dd5bb 94910] INFO -- : Seeding details about Alice
 [person-database-testpack 2023-05-15 14:59:27 3425d11a 94911] INFO -- : Seeding details about Bob
 [person-database-testpack 2023-05-15 14:59:27 683dd5bb 94910] INFO -- : Insert successful
@@ -193,7 +193,7 @@ First up, `system_name` is nice and simple. This allows you to add an overall sy
 
 `merge`, the final thing that can be configured within Herodotus is the most complex. Think back to our original example, but this time imagine that rather than the database being configured in a different module, it is something we are pulling in from an external package that also implements Herodotus. Let's have a look at what that would output:
 
-```
+```shell
 [person-database-testpack 2023-05-15 15:13:01 9e5ca313 98217] INFO -- : Seeding details about Alice
 [person-database-testpack 2023-05-15 15:13:01 d6812ffc 98218] INFO -- : Seeding details about Bob
 [database-gem 2023-05-15 15:13:01 fefcf70f 98217] INFO -- : Insert successful
@@ -216,11 +216,11 @@ def merge_correlation_ids(new_scenario: nil)
 end
 ```
 
-Now, the above looks complex but if we break it down it's actually quite simple. First up, we are grabbing every instance of `HerodotusLogger` that currently exists by using the [ObjectSpace.each_object](https://ruby-doc.org/core-2.6.1/ObjectSpace.html#method-c-each_object) method, which will return an enumerator that we can use to iterate through all of them. While we are iterating through them, we make sure we don't try and merge this logger with itself, as that can lead to some nasty unexpected behaviour. Once the code is happy it has hold of a different logger, it first stops that logger from trying to merge with the others if has is set up to do so. Again, this is for safety as if that wasn't toggled off we'd end up in an endless loop. What we actually want is a single source of truth, which will be the logger highest up the stack, in our case the one that is created in the tests. Finally, we override that loggers collection of correlation ids and then get it to set itself to the current scenario, safe in the knowledge it will have a correlation id for this scenario as we've just given it that. 
+Now, the above looks complex but if we break it down it's actually quite simple. First up, we are grabbing every instance of `HerodotusLogger` that currently exists by using the [ObjectSpace.each_object](https://ruby-doc.org/core-2.6.1/ObjectSpace.html#method-c-each_object) method, which will return an enumerator that we can use to iterate through all of them. While we are iterating through them, we make sure we don't try and merge this logger with itself, as that can lead to some nasty unexpected behaviour. Once the code is happy it has hold of a different logger, it first stops that logger from trying to merge with the others if has is set up to do so. Again, this is for safety as if that wasn't toggled off we'd end up in an endless loop. What we actually want is a single source of truth, which will be the logger highest up the stack, in our case the one that is created in the tests. Finally, we override that loggers collection of correlation ids and then get it to set itself to the current scenario, safe in the knowledge it will have a correlation id for this scenario as we've just given it that.
 
 Taking that into account and enabling merge on our logger, we get the following output:
 
-```
+```shell
 [person-database-testpack 2023-05-15 15:29:47 594053ed 4415] INFO -- : Seeding details about Bob
 [person-database-testpack 2023-05-15 15:29:47 2472e136 4414] INFO -- : Seeding details about Alice
 [database-gem 2023-05-15 15:29:47 594053ed 4415] ERROR -- : Database rejected insertion, constraint violation
@@ -235,7 +235,7 @@ And there we have it, we are merging our ids across different instances of Herod
 
 Right back at the start, I said that one of the most important things about these sorts of logs is that they should be easy for a human to read. As such, there is one last thing included in Herodotus that aids in that goal. There are [a collection of extensions to the default String class](https://github.com/dvla/herodotus/blob/main/lib/dvla/herodotus/string.rb) that allow you to simple apply colour to string, helping you easily highlight specific points of interest in your log messages. With a quick pass of colour to our loggers, we can quite quickly get something that looks like this:
 
-{{< figure src="images/logger_output_in_colour.png" title="Logger output, now in colour" >}}
+{{<figure width="1600" height="263" src="images/logger_output_in_colour.jpg" title="Logger output, now in colour" >}}
 
 ## Conclusion
 

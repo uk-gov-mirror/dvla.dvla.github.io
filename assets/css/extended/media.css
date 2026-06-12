@@ -1,0 +1,17 @@
+.post-content img {
+  /* Maintain aspect ratio of images */
+  width: 100%;
+  height: auto;
+}
+
+.post-content figure.align-center img {
+  /* Avoid stretching centered images */
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+.post-content figure audio {
+  /* Give the audio player some room to breathe */
+  margin: 1.5rem 0 1rem;
+}

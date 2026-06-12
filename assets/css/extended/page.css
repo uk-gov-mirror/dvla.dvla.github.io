@@ -1,0 +1,9 @@
+a:hover {
+  /* Make sure links are underlined on hover to improve accessibility, focus styles are already present */
+  text-decoration: underline;
+}
+
+.first-entry {
+  /* Remove the chin off the first entry on the home page */
+  min-height: auto;
+}

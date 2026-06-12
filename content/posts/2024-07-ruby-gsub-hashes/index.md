@@ -24,15 +24,15 @@ But what if you wanted to do something different for each match? Well, because `
 # => "There are several cakes and a few teapots on the table"
 ```
 
-This can quickly become unmanagable. However, there is another way we can interact with `gsub`. Instead of simply giving it a string as the second argument, we can pass in a hash of matches, with the keys being potential matches and the values being the replacement strings.
+This can quickly become unmanageable. However, there is another way we can interact with `gsub`. Instead of simply giving it a string as the second argument, we can pass in a hash of matches, with the keys being potential matches and the values being the replacement strings.
 
 ```ruby
-tea_party_matches ={
-    '3' => 'a few',
-    '5' => 'several'
+tea_party_matches = {
+  '3' => 'a few',
+  '5' => 'several'
 }
 'There are 5 cakes and 3 teapots on the table'.gsub(/\d/, tea_party_matches)
 # => There are several cakes and a few teapots on the table
 ```
 
-This tends to be much more readable, particularly when you get into more real-world examples with complex regex statements matching several different things you might want to replace. 
+This tends to be much more readable, particularly when you get into more real-world examples with complex regex statements matching several different things you might want to replace.

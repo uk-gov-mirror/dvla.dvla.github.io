@@ -4,13 +4,13 @@ title: "TiL: Double Splat Nil in Ruby"
 description: "What is a Double Splat Nil and how does it help clamp down on unwanted named arguments"
 draft: false
 date: 2025-06-09
-tags: ["Ruby", "nil", 'double splat', "Today I Learned"]
+tags: ["Ruby", "nil", "double splat", "Today I Learned"]
 categories: ["TIL", "Ruby"]
 ShowToc: false
 TocOpen: false
 ---
 
-# How Ruby can do what you don't expect
+## How Ruby can do what you don't expect
 
 Ruby is a very clever language. It will take the code you've written and do it's best to make sure it runs. Take for example the following method call:
 
@@ -35,7 +35,7 @@ Interesting. At first glance it might appear that this method would print `Hello
 
 So what is going on here? Well, it's because when we call `method_one` we are incorrectly assuming that `param_two` is a keyword argument and are providing the name alongside the value. This is where Ruby tries to be clever as it transforms that into the hash `{:param_two=>" world"}`, which is not what we were expecting. There are a few ways you can deal with this, but the one this post is about is adding a double splat nil to the end of the list of arguments.
 
-# Double Splat Nil
+## Double Splat Nil
 
 `**nil` might look a bit strange if you haven't seen it before, so lets break it down. A double splat (`**`) is used to indicate that you are expecting a quantity of keyword arguments to be provided when a method is invoked. For example:
 
@@ -48,6 +48,7 @@ double_splat(arg_one: 123, arg_two: 'Four Five Six', arg_three: 789)
 ```
 
 That prints out the following hash:
+
 ```ruby
 {:arg_one=>123, :arg_two=>"Four Five Six", :arg_three=>789}
 ```

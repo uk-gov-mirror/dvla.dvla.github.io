@@ -10,3 +10,8 @@
   margin-right: auto;
   width: auto;
 }
+
+.post-content figure audio {
+  /* Give the audio player some room to breathe */
+  margin: 1.5rem 0 1rem;
+}

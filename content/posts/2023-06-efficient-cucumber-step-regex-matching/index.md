@@ -27,9 +27,10 @@ Given a message of 'I like Cucumber' was added to the queue
 ```
 
 The step can be captured using the following Cucumber Expression in the step definition block:
+
 ```ruby
 Given('a message of {string} was added to the queue') do |message_text|
-    ...
+    # ...
 end
 ```
 
@@ -41,7 +42,7 @@ If we want to reuse the step definition to perform the same action of adding ano
 
 ```ruby
 Given('a/another message of {string} was added to the queue') do |message_text|
-    ...
+    # ...
 end
 ```
 
@@ -64,7 +65,7 @@ Let's attempt to capture the above examples using the following regex in the ste
 
 ```ruby
 Given(/^(a|another) message of '(.*)' was added to the queue$/) do |_unused, message_text|
-    ...
+    # ...
 end
 ```
 
@@ -74,21 +75,21 @@ Note that we need the single quotes around the `(.*)` to capture only the string
 
 Here's a quick summary of some common regex patterns:
 
-|  Patterns   |                             Definition                              |
-|:-----------:|:-------------------------------------------------------------------:|
-|    `.*`     | matches any character (except for newline) between 0 or more times” |
-|    `.+`     | matches at least one of any character (except for line terminators) |
-|    `.?`     | matches one or zero of any character (except for line terminators)  |
-|     `^`     |                 asserts position at start of a line                 |
-|     `$`     |                  asserts position at end of a line                  |
-|    `\d`     |                matches a digit (equivalent to [0-9])                |
-| `[A-Za-z]*` |   matches letter 'A' to 'Z' or 'a' to 'z' between 0 or more times   |
+| Patterns    | Definition                                                          |
+| ----------- | ------------------------------------------------------------------- |
+| `.*`        | matches any character (except for newline) between 0 or more times” |
+| `.+`        | matches at least one of any character (except for line terminators) |
+| `.?`        | matches one or zero of any character (except for line terminators)  |
+| `^`         | asserts position at start of a line                                 |
+| `$`         | asserts position at end of a line                                   |
+| `\d`        | matches a digit (equivalent to [0-9])                               |
+| `[A-Za-z]*` | matches letter 'A' to 'Z' or 'a' to 'z' between 0 or more times     |
 
 To simplify this regex better, we can update it to the following:
 
 ```ruby
 Given(/message of '(.*)' was added to the queue$/) do |message_text|
-    ...
+    # ...
 end
 ```
 
@@ -116,7 +117,7 @@ We can be more specific about the format of the date by using the following rege
 
 ```ruby
 Given(/date of '([\d]{4}-{\d}{2}-{\d}{2})' was added to the schedule$/) do |date|
-    ...
+    # ...
 end
 ```
 
@@ -182,7 +183,7 @@ For example, let's consider the following steps:
 Scenario: Checkout apples in basket
     Given there are 5 discounted apples in the basket
     ...
-    
+
 Scenario: Checkout medicine in basket
     Given there are 2 cough medicines in the basket
     ...

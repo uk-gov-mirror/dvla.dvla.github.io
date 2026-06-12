@@ -31,7 +31,7 @@ In a typical setup you may have:
 3. A dead-letter queue that can hold messages that can not be processed
 4. A means of alerting a human when messages are placed on the DLQ
 
-{{< figure src="images/queue-with-dlq-and-alarm.png" title="DLQ example using AWS" caption="The message handler [2] invokes an external API. If the API is unavailable messages will end up on the DLQ, triggering an alarm." >}}
+{{<figure width="1440" height="710" src="images/queue-with-dlq-and-alarm.jpg" title="DLQ example using AWS" caption="The message handler [2] invokes an external API. If the API is unavailable messages will end up on the DLQ, triggering an alarm." >}}
 
 ### You may not be able to process every message
 
@@ -55,7 +55,7 @@ We don't want items appearing on our DLQ as it means something has gone wrong an
 
 If your messages were moved to the DLQ because a dependency was temporarily unavailable then you may just need to move the messages back onto the source queue (once the dependency is available) so they can be processed again.
 
-{{< figure src="images/aws-sqs-dlq-redrive.jpeg" title="The DLQ redrive feature as it appears in the AWS console." >}}
+{{<figure width="1600" height="1133" src="images/aws-sqs-dlq-redrive.jpg" title="The DLQ redrive feature as it appears in the AWS console." >}}
 
 If you're using AWS, and have the appropriate permissions, source queue re-drive can be achieved [through the AWS console](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-dead-letter-queue-redrive.html). This capability is not exposed through an API so may be something you need to implement yourself if the console is not an option in a production environment.
 
@@ -73,7 +73,7 @@ Other scenarios and queuing services may require a different approach and you sh
 
 ### SQS has a maximum message retention period of 14 days
 
-{{< figure src="images/sqs-deletes-messages.png"  >}}
+{{<figure width="1600" height="230" src="images/sqs-deletes-messages.jpg"  >}}
 
 We use AWS SQS for both source queues and a dead-letter queues and SQS has a [maximum message retention period](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-architecture.html) of fourteen days. Once a message has sat on a queue for this duration _the message will be deleted_.
 
@@ -128,7 +128,7 @@ Clearly we don't want to lose messages, so we spent some time analysing what wen
 
 ### Understanding our DLQ alarm behaviour
 
-{{< figure src="images/approx-number-of-messages-visible-with-alarm.png"  caption="Our original alarm threshold was triggered once when messages were initially  added to the queue."  >}}
+{{<figure width="1600" height="643" src="images/approx-number-of-messages-visible-with-alarm.jpg"  caption="Our original alarm threshold was triggered once when messages were initially  added to the queue."  >}}
 
 Messages were added to the DLQ in distinct phases over a period of time but just a single alarm was triggered and a single incident raised.
 
@@ -159,7 +159,7 @@ The alarm threshold was met once at 07:53 and entered an `ALARM` state, but neve
 
 We discussed the incident at one of our regular engineering community of practice meetings, both to raise awareness and to try and learn from each other. One of our teams shared their approach:
 
-> if the number of messages added to the DLQ in the last 5 minutes > 0 then raise an alarm
+> If the number of messages added to the DLQ in the last 5 minutes > 0 then raise an alarm
 
 Which results in the alarm being triggered multiple times:
 
@@ -174,28 +174,28 @@ Which results in the alarm being triggered multiple times:
 
 The threshold is met at 07:53 entering an `ALARM` state then returns to `OK` within five minutes. This allows the threshold to crossed again when subsequent messages are added to the queue (08:02, 08:13). Much nicer.
 
-{{< figure src="images/approx-number-of-messages-visible-with-alarms.png"  caption="Now the alarm triggers multiple times.">}}
+{{<figure width="1600" height="643" src="images/approx-number-of-messages-visible-with-alarms.jpg"  caption="Now the alarm triggers multiple times.">}}
 
 If you want to set his up in Cloudwatch it will look something like this:
 
 ```yml
 DLQueueAlarm:
-    Type: AWS::CloudWatch::Alarm
-    Properties:
-        AlarmDescription: 'Message(s) added to the SMS DLQ in the last 5 minutes'
-        Namespace: 'AWS/SQS'
-        MetricName: NumberOfMessagesSent
-        Dimensions:
-        - Name: QueueName
-            Value: 'my-dlq'
-        Statistic: Sum
-        Period: 60
-        EvaluationPeriods: 5
-        DatapointsToAlarm: 1
-        Threshold: 1
-        ComparisonOperator: GreaterThanOrEqualToThreshold
-        AlarmActions:
-        - Ref: DLQueueAlarmTopic
+  Type: AWS::CloudWatch::Alarm
+  Properties:
+    AlarmDescription: "Message(s) added to the SMS DLQ in the last 5 minutes"
+    Namespace: "AWS/SQS"
+    MetricName: NumberOfMessagesSent
+    Dimensions:
+      - Name: QueueName
+        Value: "my-dlq"
+    Statistic: Sum
+    Period: 60
+    EvaluationPeriods: 5
+    DatapointsToAlarm: 1
+    Threshold: 1
+    ComparisonOperator: GreaterThanOrEqualToThreshold
+    AlarmActions:
+      - Ref: DLQueueAlarmTopic
 ```
 
 > Update 2022-04-04 - it turns out that this example only works when manually adding messages to your DLQ (which you may do while testing the alarm). You can achieve something equivalent using `RATE(ApproximateNumberOfMessagesVisible)>0` and I'll update this example to reflect this ASAP.
@@ -212,7 +212,7 @@ One of our developers came up with a really neat cloudwatch expression that make
 
 Which will result in the alarm being triggered at around 7am each day if there are messages on the DLQ, even if no further messages have been added.
 
-{{< figure src="images/sqs-daily-alarm.png" title="Daily DLQ alarm" caption="The expression means that the alarm enters an ALARM state at 7 and returns to OK at 9." >}}
+{{<figure width="1574" height="536" src="images/sqs-daily-alarm.jpg" title="Daily DLQ alarm" caption="The expression means that the alarm enters an ALARM state at 7 and returns to OK at 9." >}}
 
 _Kudos to [Matthew Lewis](https://www.linkedin.com/in/matthew-lewis-277a7157/) for figuring this out 🙌_
 
@@ -226,9 +226,9 @@ DLQDailyAlarm:
     AlarmActions:
       - arn:aws:sns:eu-west-2:1234567890:alert-topic
     AlarmDescription: Daily alarm for messages on DLQ
-    AlarmName: 'dlq-daily-alarm'
+    AlarmName: "dlq-daily-alarm"
     Metrics:
-    - Id: summary
+      - Id: summary
         Label: DLD Dead Letter Queues Alarm
         Expression: IF(HOUR(myDLQ)>7 AND HOUR(myDLQ)<9 AND myDLQ > 0, 1, 0)
         ReturnData: true
@@ -240,21 +240,17 @@ We use PagerDuty to manage incidents and alert engineers.
 
 When integrating Cloudwatch alarms with PagerDuty to raise [Alerts](https://support.pagerduty.com/docs/alerts) there are a few nuances to be aware of with this sort of alarm threshold.
 
-**Ok actions and auto-resolving alerts**
-
-When the number of messages added to the DQL within 5 minutes drops to zero the cloudwatch alarm will return to an `OK` state
+**OK actions and auto-resolving alerts:** When the number of messages added to the DQL within 5 minutes drops to zero the cloudwatch alarm will return to an `OK` state.
 
 If you integrate a Cloudwatch `OK` action with PagerDuty this will cause the PagerDuty Alert to be auto-resolved and closed before a human has had time to notice and take appropriate action.
 
-**Configure alert correlation**
-
-To ensure that you raise a new alert each day you will need to configure how PagerDuty performs correlation. If you don't do this you may find that your daily alarms are grouped together under the initial alert.
+**Configure alert correlation:** To ensure that you raise a new alert each day you will need to configure how PagerDuty performs correlation. If you don't do this you may find that your daily alarms are grouped together under the initial alert.
 
 **Correlate events by:** Make a new incident/alert each time
 
 **Derive name from:** Alarm Name
 
-{{< figure src="images/cloudwatch-pagerduty-integration.png" title="Configure your Cloudwatch integration within PagerDuty to ensure a new incident is raised each time your alarm triggers." >}}
+{{<figure width="1540" height="704" src="images/cloudwatch-pagerduty-integration.jpg" title="Configure your Cloudwatch integration within PagerDuty to ensure a new incident is raised each time your alarm triggers." >}}
 
 ---
 
@@ -276,4 +272,4 @@ This could include:
 
 Hopefully this article will help you think a little more about how you are using DLQs and the processes you have in place to handle any messages that land on them.
 
-All being well this isn't someything you'll have to do frequently but it may be worth reviewing your approach and what alarms or alerts you have in place.
+All being well this isn't something you'll have to do frequently but it may be worth reviewing your approach and what alarms or alerts you have in place.

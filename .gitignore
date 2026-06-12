@@ -3,5 +3,12 @@ node_modules
 .DS_Store
 **/*/.DS_Store
 public
-.idea
+.idea/*
+!.idea/externalDependencies.xml
+!.idea/prettier.xml
+!.idea/codeStyles/
+!.idea/codeStyles/codeStyleConfig.xml
+!.idea/codeStyles/Project.xml
+!.idea/dictionaries/
+!.idea/dictionaries/project.xml
 resources

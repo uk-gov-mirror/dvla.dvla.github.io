@@ -68,7 +68,7 @@ Asked how the team approached the problem, Simon explained; “We wrote markdown
 
 The team worked as a mob: everyone around one screen, ideas being shared freely, with nobody off in a corner on their own task. One person ‘drove’ at first while everyone else shaped ideas and refined the markdown guides. Later, they scaled to two drivers and two supporters. Starting with one driver avoided early merge clashes, then scaling up the approach kept the pace up once the direction was clear.
 
-The team checked the agent’s outputs and corrected course when things diverged from the plan but they didn’t write code directly. The agents implemented all the code paths, using the markdown files as context and documentation, and they worked through most problems without needing engineer intervention at every step.
+The team checked the agent’s outputs and corrected course when things diverged from the plan, but they didn’t write code directly. The agents implemented all the code paths, using the markdown files as context and documentation, and they worked through most problems without needing engineer intervention at every step.
 
 The prototype application that the DVLA Data team produced converted JSON to RDF to backend to frontend code, and the final product ‘Findings on Allocation, Levels, Capacity, Organisations & Needs’ or ‘FALCON’, a Staff & Services Finder.
 
@@ -107,7 +107,7 @@ The prototype used AI to:
 
 From the agent’s analysis, they built an AI-powered workflow engine, a casework management backend and UI, and an applicant portal where users could track their application’s status and submit supporting evidence.
 
-{{<figure width="1200" height="900" align="left" src="images/dvlai_govuk_casework_hackathon_prototype.jpg" caption="Screenshot of the DVLAi team’s hackathon prototype which used AI to produce case types and suggest improvements to public service workflows in it's multi-step review process. The example shows the creation of a decision tree to handle household recycling centre slot booking and waste disposal requests.">}}
+{{<figure width="1200" height="900" align="left" src="images/dvlai_govuk_casework_hackathon_prototype.jpg" caption="Screenshot of the DVLAi team's hackathon prototype which used AI to produce case types and suggest improvements to public service workflows in its multistep review process. The example shows the creation of a decision tree to handle household recycling centre slot booking and waste disposal requests.">}}
 
 Jed, a software engineer on the DVLAi team, said: “This challenge let us test one reusable pattern for improving many manual or paper-heavy services. That made it directly relevant to the kinds of internal process problems we see at DVLA”. On implementation, he added: “We kept the stack simple with Ruby on Rails and split work across front-end, back-end, and project management”.
 
@@ -121,7 +121,7 @@ Richard stressed the importance of approaching the technology with a scientific 
 
 After an intense day of coding, tweaking, demoing, and in-depth talks with the judges and engineers from major technology companies, DVLAi made it to the final round and were given the opportunity to present their project to the room: “It all happened quite quickly- one minute we were huddled around the desk and the next we were out in the lobby prepping notes”, Phillip said.
 
-Tom led the presentation, giving a mostly off-the-cuff talk exploring how councils and other authorities could use something like the team’s project to boost the level of engagement with public services, reduce telephone enquiries, and let teams with few IT staff quickly migrate small services onto modern, digital-first infrastructure. “Pretty much everyone will have to use public services at some point, often during times of crisis or difficulty, and many of these services end up firing off an email in the background and you’ve got no idea what the status of your application is”, Tom explained. “The opportunity for improvement here is enormous”.
+Tom led the presentation, giving a mostly off-the-cuff talk exploring how councils and other authorities could use something like the team’s project to boost the level of engagement with public services, reduce telephone enquiries, and let teams with fewer IT staff quickly migrate small services onto modern, digital-first infrastructure. “Pretty much everyone will have to use public services at some point, often during times of crisis or difficulty, and many of these services end up firing off an email in the background, and you’ve got no idea what the status of your application is”, Tom explained. “The opportunity for improvement here is enormous”.
 
 {{<figure width="1200" height="900" align="left" src="images/dvlai_tom_collins_presenting_to_judge.jpg" caption="Tom presenting the DVLAi team's prototype to one of the judges at the AI Engineering Lab Hackathon, CodeNode in London. The judges praised the practical value of the project and the team’s clear vision for how it's principles could be applied to real public services.">}}
 

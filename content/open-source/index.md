@@ -4,7 +4,7 @@ date: 2023-02-27T18:03:22Z
 draft: false
 ---
 
-Ok so we don't code entirely [in the open](https://www.gov.uk/service-manual/service-standard/point-12-make-new-source-code-open) at the DVLA we do like to share useful libraries and utilities when we can. You can find a list of recent open-source projects below.
+OK so we don't code entirely [in the open](https://www.gov.uk/service-manual/service-standard/point-12-make-new-source-code-open) at the DVLA we do like to share useful libraries and utilities when we can. You can find a list of recent open-source projects below.
 
 ## AWS
 
@@ -58,13 +58,13 @@ This gem has pre-configured browser drivers that you can use out-of-the-box for 
 
 Ka-Ping! An Idiomatic ruby way to construct ElasticSearch queries.
 
-# Dynamics 365
+## Dynamics 365
 
 ### [dataverse-helper](https://github.com/dvla/dataverse-helper)
 
 This gem helps you integrate with Microsoft Dynamics using Microsoft Dataverse Web API. You can create, retrieve, delete or update a record without worrying about authentications as it's automatically managed behind the scenes.
 
-# JavaScript
+## JavaScript
 
 ### [postman-paf-js](https://github.com/dvla/postman-paf-js)
 

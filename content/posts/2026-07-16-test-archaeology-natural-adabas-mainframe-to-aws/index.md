@@ -10,8 +10,6 @@ ShowToc: true
 TocOpen: true
 ---
 
-# Test Archaeology: Following Natural/Adabas Behaviour from the Mainframe to AWS
-
 D90 is a long‑running Natural/Adabas application that supports core driver and vehicle licensing services. We’re moving it from its existing IBM mainframe environment to AWS, which raises an obvious question: will it still work the same way?
 
 The application launched in the 1990s and has been refined ever since. Moving it to AWS requires adapting to a different platform: encoding, sort order, I/O behaviour, and other assumptions built into the code over decades. We are adding Cucumber scenarios using Software AG’s browser-based Natural interface with Capybara and Playwright to ensure key features work as expected.

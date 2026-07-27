@@ -1,6 +1,6 @@
 ---
 author: ["Joseph Ward"]
-title: "Test Archaeology: Following Natural/Adabas Behaviour from the Mainframe to AWS"
+title: "Test Archaeology: Following Natural/Adabas Behaviour from the Mainframe to Linux"
 description: "Using AI and Cucumber to trace Natural/Adabas execution paths during DVLA's mainframe-to-AWS migration."
 draft: false
 date: 2026-07-16
@@ -10,9 +10,9 @@ ShowToc: true
 TocOpen: true
 ---
 
-D90 is a long‑running Natural/Adabas application that supports core driver and vehicle licensing services. We’re moving it from its existing IBM mainframe environment to AWS, which raises an obvious question: will it still work the same way?
+D90 is a long-running Natural/Adabas application that supports core driver and vehicle licensing services. We’re moving it from its existing IBM mainframe environment to Linux running on AWS, which raises an obvious question: will it still work the same way?
 
-The application launched in the 1990s and has been refined ever since. Moving it to AWS requires adapting to a different platform: encoding, sort order, I/O behaviour, and other assumptions built into the code over decades. We are adding Cucumber scenarios using Software AG’s browser-based Natural interface with Capybara and Playwright to ensure key features work as expected.
+The application launched in the 1990s and has been refined ever since. Moving it to Linux running on AWS requires adapting to a different platform: encoding, sort order, I/O behaviour, and other assumptions built into the code over decades. We are adding Cucumber scenarios using Software AG’s browser-based Natural interface with Capybara and Playwright to ensure key features work as expected.
 
 AI has been a big help in deciding which scenarios to cover with specifications by example written in Ruby.
 
@@ -194,7 +194,7 @@ The goal is to have a set of scenarios where each one clearly shows what it's co
 
 The suite's main job right now is to make sure the migration goes smoothly. Each scenario shows us how the system behaves on both platforms.
 
-It also leaves behind an executable description of the application. The scenario records its setup, action and outcome. The research behind it — execution maps, evidence logs, unresolved questions — records the programs, data and decisions that connect them. Those artefacts sit alongside the test code so that the next person to touch a journey can see not just *what* we tested but *why*, and what we ruled out.
+It also leaves behind an executable description of the application. The scenario records its setup, action and outcome. The research behind it, execution maps, evidence logs, unresolved questions, records the programs, data, and decisions that connect them. Those artefacts sit alongside the test code so that the next person to touch a journey can see not just *what* we tested but *why*, and what we ruled out.
 
 Over time, this accumulates into something more valuable than either the tests or the documentation alone. A future change starts with a known journey, a traced path through the source, and a record of which platform assumptions were confirmed. That's a different starting point from another blank search box.
 

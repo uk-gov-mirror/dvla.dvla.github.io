@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Natural on DVLA Engineering</title>
+    <link>https://dvla.github.io/tags/natural/</link>
+    <description>Recent content in Natural on DVLA Engineering</description>
+    <image>
+      <title>DVLA Engineering</title>
+      <url>https://dvla.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dvla.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.164.0</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dvla.github.io/tags/natural/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Archaeology: Following Natural/Adabas Behaviour from the Mainframe to Linux</title>
+      <link>https://dvla.github.io/posts/2026-07-16-test-archaeology-natural-adabas-mainframe-to-linux/</link>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://dvla.github.io/posts/2026-07-16-test-archaeology-natural-adabas-mainframe-to-linux/</guid>
+      <description>Using AI and Cucumber to trace Natural/Adabas execution paths during DVLA&amp;#39;s mainframe-to-AWS migration.</description>
+    </item>
+  </channel>
+</rss>

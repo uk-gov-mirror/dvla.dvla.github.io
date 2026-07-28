@@ -2,16 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dvla.github.io/tags/adabas/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/ai/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/aws/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/categories/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/cucumber/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/migration/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/natural/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/posts/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/categories/ruby/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/ruby/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/posts/2026-07-16-test-archaeology-natural-adabas-mainframe-to-linux/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/categories/testing/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dvla.github.io/tags/testing/</loc>
+    <lastmod>2026-07-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dvla.github.io/tags/agentic-development/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/categories/ai/</loc>
-    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/tags/ai/</loc>
-    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/categories/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/tags/civil-service/</loc>
@@ -23,9 +62,6 @@
     <loc>https://dvla.github.io/posts/2026-06-03-ai-engineering-lab-hackathon/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dvla.github.io/</loc>
-    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dvla.github.io/categories/events/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -35,16 +71,10 @@
     <loc>https://dvla.github.io/tags/knowledge-graphs/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dvla.github.io/posts/</loc>
-    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dvla.github.io/tags/public-services/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/tags/software-engineering/</loc>
-    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/tags/</loc>
     <lastmod>2026-06-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/tags/workflow-automation/</loc>
@@ -66,12 +96,6 @@
     <lastmod>2025-06-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/tags/nil/</loc>
-    <lastmod>2025-06-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/categories/ruby/</loc>
-    <lastmod>2025-06-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/tags/ruby/</loc>
     <lastmod>2025-06-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/categories/til/</loc>
@@ -116,12 +140,6 @@
     <loc>https://dvla.github.io/tags/max_by/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dvla.github.io/categories/testing/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/tags/testing/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dvla.github.io/posts/2024-12-using-max-by-in-ruby/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -138,9 +156,6 @@
     <lastmod>2024-11-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/categories/cucumber/</loc>
-    <lastmod>2024-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/tags/cucumber/</loc>
     <lastmod>2024-11-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/categories/drone/</loc>
@@ -189,9 +204,6 @@
     <lastmod>2024-07-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/categories/aws/</loc>
-    <lastmod>2024-03-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dvla.github.io/tags/aws/</loc>
     <lastmod>2024-03-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dvla.github.io/categories/aws-step-functions/</loc>
